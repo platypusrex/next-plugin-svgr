@@ -18,28 +18,31 @@ module.exports = (nextConfig = {}) => {
       const svgProps = nextConfig.svgProps || [];
       const titleProp = nextConfig.titleProp || false;
 
+      const opts = configFile
+        ? configFile
+        : {
+          ext,
+          icon,
+          native,
+          dimensions,
+          expandProps,
+          prettier,
+          prettierConfig,
+          svgo,
+          svgoConfig,
+          ref,
+          memo,
+          replaceAttrValues,
+          svgProps,
+          titleProp,
+        };
+
       config.module.rules.push({
         test: /\.svg$/,
         use: [
           {
             loader: require.resolve('@svgr/webpack'),
-            options: {
-              configFile,
-              ext,
-              icon,
-              native,
-              dimensions,
-              expandProps,
-              prettier,
-              prettierConfig,
-              svgo,
-              svgoConfig,
-              ref,
-              memo,
-              replaceAttrValues,
-              svgProps,
-              titleProp
-            }
+            options: opts,
           }
         ]
       });
