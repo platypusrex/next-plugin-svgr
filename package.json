@@ -1,0 +1,15 @@
+{
+  "name": "next-plugin-svgr",
+  "version": "0.0.1",
+  "description": "Next js plugin for SVGR",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/platypusrex/next-plugin-svgr.git"
+  },
+  "author": "Frank Cooke",
+  "license": "MIT",
+  "dependencies": {
+    "@svgr/webpack": "^5.2.0"
+  }
+}
