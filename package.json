@@ -1,6 +1,6 @@
 {
   "name": "next-plugin-svgr",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Next js plugin for SVGR",
   "main": "index.js",
   "repository": {
