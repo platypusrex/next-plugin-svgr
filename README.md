@@ -75,10 +75,12 @@ Example with options:
 
 ```js
 module.exports = withSvgr({
-  titleProp: true,
-  icon: true,
-  svgProps: {
-    height: 'auto',
+  svgrOptions: {
+    titleProp: true,
+    icon: true,
+    svgProps: {
+      height: 'auto',
+    },
   },
 });
 ```
@@ -91,6 +93,9 @@ which means that any file type accepted by cosmicconfig is supported.
 * A svgr.config.js file that exports an object.
 * A "svgr" key in your package.json file.
 
+**note:** The plugin will automatically detect your config file so you shouldn't have to include the `configFile`
+property in `svgrOptions`. The option to specify exists and can be accomplished following the example below.
+
 ```js
 // .svgrrc.js
 module.exports = {
@@ -100,14 +105,18 @@ module.exports = {
 
 // next.config.js
 module.exports = withSvgr({
-  configFile: path.resolve(__dirname, '.svgrrc.js'),
+  svgrOptions: {
+    configFile: path.resolve(__dirname, '.svgrrc.js'),
+  },
 });
 
 // or with next-compose-plugins
 module.exports = withPlugins([
   withGraphql,
   [withSvgr, {
-    configFile: path.resolve(__dirname, '.svgrrc.js'),
+    svgrOptions: {
+      configFile: path.resolve(__dirname, '.svgrrc.js'),
+    },
   }],
 ]);
 ```
