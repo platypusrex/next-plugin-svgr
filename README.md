@@ -68,6 +68,8 @@ export default () => (
 
 ### Options
 
+#### svgrOptions
+
 The plugins supports all available options of svgr webpack loader.
 Check out the [svgr documentation](https://react-svgr.com/docs/options/) for the full list of options.
 
@@ -121,23 +123,39 @@ module.exports = withPlugins([
 ]);
 ```
 
-### Typescript
+#### includeFileLoader
 
-Create a image.d.ts file in your project and add the definition for svg modules below.
+If you would like to use the svgr webpack loader with url-loader or file-loader.
 
 ```js
-declare module '*.svg' {
-  import { FC, SVGProps } from 'react';
-  const _: FC<SVGProps<HTMLOrSVGElement>>;
-  export = _;
-}
+module.exports = withSvgr({
+  includeFileLoader: true,
+  svgrOptions: {
+    ...options
+  },
+});
 ```
 
-**note:** If using titleProp you may want to extend the type 
-```js
-declare module '*.svg' {
-  import { FC, SVGProps } from 'react';
-  const _: FC<SVGProps<HTMLOrSVGElement> & { title?: string }>;
-  export = _;
-}
+### Typescript
+
+Typescript is unable to interpret imported svg files, so `next-plugin-svgr` includes definitions
+for svg modules depending on your use case. You can reference any of the definitions in your 
+`next-env.d.ts` file.
+
+1. if using the plugin without the `includeFileLoader` option
+
+```diff
+/// <reference types="next" />
+/// <reference types="next/types/global" />
+
++ /// <reference types="next-plugin-svgr/types/svg" />
+```
+
+2. If using the plugin with the `includeFileLoader` option
+
+```diff
+/// <reference types="next" />
+/// <reference types="next/types/global" />
+
++ /// <reference types="next-plugin-svgr/types/svgFileLoader" />
 ```
