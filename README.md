@@ -123,13 +123,44 @@ module.exports = withPlugins([
 ]);
 ```
 
-#### includeFileLoader
+#### fileLoader
 
-If you would like to use the svgr webpack loader with url-loader or file-loader.
+If you would like to use the svgr webpack loader with [file-loader](https://github.com/webpack-contrib/file-loader). 
+Accepts a `boolean` or all available [options](https://github.com/webpack-contrib/file-loader#options) for file-loader.
+
+The `fileLoader` option is `undefined` by default. If defined, it will apply the options below.
+
+Default options:
+
+```
+{
+  limit: 8192,  
+  name: '[name]-[hash].[ext]',
+  outputPath: `${isServer ? "../" : ""}static/chunks/svg/`,
+  publicPath: `${assetPrefix}/_next/static/chunks/svg/`,
+}
+```
 
 ```js
 module.exports = withSvgr({
-  includeFileLoader: true,
+  fileLoader: true,
+  svgrOptions: {
+    ...options
+  },
+});
+```
+
+```js
+module.exports = withSvgr({
+  fileLoader: {
+    limit: 16384,
+    name(resourcePath, resourceQuery) {
+      if (process.env.NODE_ENV === 'development') {
+        return '[path][name].[ext]';
+      } 
+      return '[contenthash].[ext]';
+    }
+  },
   svgrOptions: {
     ...options
   },
@@ -142,7 +173,7 @@ Typescript is unable to interpret imported svg files, so `next-plugin-svgr` incl
 for svg modules depending on your use case. You can reference any of the definitions in your 
 `next-env.d.ts` file.
 
-1. if using the plugin without the `includeFileLoader` option
+1. if using the plugin without the `fileLoader` option
 
 ```diff
 /// <reference types="next" />
@@ -151,7 +182,7 @@ for svg modules depending on your use case. You can reference any of the definit
 + /// <reference types="next-plugin-svgr/types/svg" />
 ```
 
-2. If using the plugin with the `includeFileLoader` option
+2. If using the plugin with the `fileLoader` option
 
 ```diff
 /// <reference types="next" />
