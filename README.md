@@ -46,7 +46,7 @@ Or with [`next-compose-plugins`](https://github.com/cyrilwanner/next-compose-plu
 ```js
 // next.config.js
 const withPlugins = require("next-compose-plugins");
-const withSvgr = require("next-svgr");
+const withSvgr = require("next-plugin-svgr");
 
 module.exports = withPlugins([
   withSvgr
