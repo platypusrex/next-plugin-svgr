@@ -3237,7 +3237,7 @@ natural-compare@^1.4.0:
   resolved "https://registry.yarnpkg.com/natural-compare/-/natural-compare-1.4.0.tgz#4abebfeed7541f2c27acfb29bdbbd15c8d5ba4f7"
   integrity sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=
 
-next-plugin-svgr@^1.1.0:
+next-plugin-svgr@latest:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/next-plugin-svgr/-/next-plugin-svgr-1.1.0.tgz#974caee9f2fe212ec0a6bd8b3a3e750a378ab72f"
   integrity sha512-7oUrpyqOV0m/Zu/DqJKXHUx76wwT/OgnKEDuWHP609qdE93F8FVNulSQoucz5bLSoEI3YtOhp9Co9YYCQ/vy/A==
