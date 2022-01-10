@@ -6,7 +6,7 @@ import styles from '../styles/Home.module.css'
 // You certainly don't need to keep svg assets here (you can place them inside 'src' or where ever you prefer)
 // If you like the clean absolute import take a look at the example tsconfig (basePath/path fields required)
 // and also next.js documentation on absolute imports/module path aliasing -> https://nextjs.org/docs/advanced-features/module-path-aliases
-import src, { ReactComponent as VercelIcon } from 'svg/vercel.svg'
+import src, { ReactComponent as VercelIcon } from 'svg/vercel.svg';
 
 const Home: NextPage = () => (
   <div className={styles.container}>
