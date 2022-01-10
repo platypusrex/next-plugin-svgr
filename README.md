@@ -1,8 +1,9 @@
 # Next.js + SVGR
 [![npm package](https://img.shields.io/npm/v/next-plugin-svgr/latest.svg)](https://www.npmjs.com/package/next-plugin-svgr)
-[![Dependencies](https://img.shields.io/david/platypusrex/next-plugin-svgr.svg)](https://david-dm.org/platypusrex/next-plugin-svgr)
+[![Dependencies](https://img.shields.io/npm/dm/next-plugin-svgr)](https://www.npmjs.com/package/next-plugin-svgr)
+[![License](https://img.shields.io/npm/l/express.svg)](https://github.com/platypusrex/next-merge-props/blob/master/LICENSE)
 
-Next plugin for transforming svg's into react components using the svgr library  [Next.js](https://github.com/zeit/next.js)
+Flexible Next.js plugin for transforming svg's into react components using the svgr library  [Next.js](https://github.com/zeit/next.js)
 
 ### Installation
 
@@ -130,14 +131,16 @@ Accepts a `boolean` or all available [options](https://github.com/webpack-contri
 
 The `fileLoader` option is `undefined` by default. If defined, it will apply the options below.
 
+**note:** If using `file-loader` and typescript remember to reference the svgr/file-loader types. See [below](#typescript).
+
 Default options:
 
 ```
 {
-  limit: 8192,  
-  name: '[name]-[hash].[ext]',
-  outputPath: `${isServer ? "../" : ""}static/chunks/svg/`,
-  publicPath: `${assetPrefix}/_next/static/chunks/svg/`,
+  limit: 8192,
+  publicPath: `${assetPrefix ?? ''}/_next/${path}`,
+  outputPath: `${isServer ? '../' : ''}${path}`,
+  name: '[path][name].[hash].[ext]',
 }
 ```
 
@@ -167,26 +170,42 @@ module.exports = withSvgr({
 });
 ```
 
+```js
+import url, { ReactComponent as Icon } from './icon.svg';
+
+export default () => (
+  <div>
+    <Icon title="my awesome icon" />
+    <img src={url} alt="my awesome image" />
+  </div>
+);
+```
+
 ### Typescript
 
 Typescript is unable to interpret imported svg files, so `next-plugin-svgr` includes definitions
-for svg modules depending on your use case. You can reference any of the definitions in your 
-`next-env.d.ts` file.
+for svg modules depending on your use case. Per the recommendations of the Next.js maintainers you
+should no longer reference these types in the `next-env.d.ts` file. You can instead create a `typings`
+directory inside your `src` directory. Then simple create a definitions file (ie: `index.d.ts`) and 
+reference any of the definitions there. There shouldn't be any need to adjust your `tsconfig.json` 
+for your project.
 
 1. if using the plugin without the `fileLoader` option
 
-```diff
-/// <reference types="next" />
-/// <reference types="next/types/global" />
-
-+ /// <reference types="next-plugin-svgr/types/svg" />
+`src/typings/index.d.ts`
+```js
+/// <reference types="next-plugin-svgr/types/svg" />
 ```
 
 2. If using the plugin with the `fileLoader` option
 
-```diff
-/// <reference types="next" />
-/// <reference types="next/types/global" />
-
-+ /// <reference types="next-plugin-svgr/types/svgFileLoader" />
+`src/typings/index.d.ts`
+```js
+/// <reference types="next-plugin-svgr/types/svgFileLoader" />
 ```
+
+### Contributors
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
+## LICENSE
+MIT
