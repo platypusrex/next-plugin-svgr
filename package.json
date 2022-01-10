@@ -7,9 +7,27 @@
     "type": "git",
     "url": "git+https://github.com/platypusrex/next-plugin-svgr.git"
   },
+  "bugs": {
+    "url": "https://github.com/platypusrex/next-plugin-svgr/issues"
+  },
   "author": "Frank Cooke",
   "license": "MIT",
+  "scripts": {
+    "lint": "eslint \"index.js\"",
+    "lint:fix": "eslint --fix"
+  },
   "dependencies": {
-    "@svgr/webpack": "^5.5.0"
+    "@svgr/webpack": "^6.2.0",
+    "file-loader": "^6.2.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^16.0.2",
+    "@commitlint/config-conventional": "^16.0.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^7.0.4",
+    "prettier": "^2.5.1",
+    "standard-version": "^9.3.2"
   }
 }

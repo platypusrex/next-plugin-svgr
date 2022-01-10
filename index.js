@@ -12,17 +12,17 @@ module.exports = (nextConfig = {}) => {
       ];
 
       if (fileLoader) {
+        const path = 'static/svg/';
         const defaultOptions = {
           limit: 8192,
-          publicPath: `${assetPrefix}/_next/static/chunks/svg/`,
-          outputPath: `${isServer ? "../" : ""}static/chunks/svg/`,
-          name: '[name]-[hash].[ext]',
-        }
-        const options = typeof fileLoader === 'boolean'
-          ? defaultOptions
-          : { ...defaultOptions, ...fileLoader };
+          publicPath: `${assetPrefix ?? ''}/_next/${path}`,
+          outputPath: `${isServer ? '../' : ''}${path}`,
+          name: '[path][name].[hash].[ext]',
+        };
+        const options =
+          typeof fileLoader === 'boolean' ? defaultOptions : { ...defaultOptions, ...fileLoader };
 
-        use.push({ loader: 'file-loader', options });
+        use.push({ loader: require.resolve('file-loader'), options });
       }
 
       config.module.rules.push({
@@ -35,6 +35,6 @@ module.exports = (nextConfig = {}) => {
       }
 
       return config;
-    }
+    },
   });
 };
