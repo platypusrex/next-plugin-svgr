@@ -3,7 +3,7 @@
 [![Dependencies](https://img.shields.io/npm/dm/next-plugin-svgr)](https://www.npmjs.com/package/next-plugin-svgr)
 [![License](https://img.shields.io/npm/l/express.svg)](https://github.com/platypusrex/next-merge-props/blob/master/LICENSE)
 
-Flexible Next.js plugin for transforming svg's into react components using the svgr library  [Next.js](https://github.com/zeit/next.js)
+Flexible [Next.js](https://github.com/zeit/next.js) plugin for transforming svg's into react components using the svgr library
 
 ### Installation
 
