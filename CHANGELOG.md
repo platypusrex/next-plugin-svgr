@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.2](https://github.com/platypusrex/next-plugin-svgr/compare/@release/1.1.1...@release/1.1.2) (2022-07-25)
+
+
+### Bug Fixes
+
+* remove svgr properties from next.config ([80300f5](https://github.com/platypusrex/next-plugin-svgr/commit/80300f5bd683bcd9d8af753363420c86af395978))
+
 ### [1.1.1](https://github.com/platypusrex/next-plugin-svgr/compare/@release/1.1.0...@release/1.1.1) (2022-01-10)
 
 ## 1.1.0 (2022-01-10)
