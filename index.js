@@ -1,5 +1,6 @@
 module.exports = (nextConfig = {}) => {
-  return Object.assign({}, nextConfig, {
+  const svgrNextConfig = {
+    ...nextConfig,
     webpack(config, options) {
       const { isServer } = options;
       const { svgrOptions, fileLoader, assetPrefix } = nextConfig;
@@ -36,5 +37,8 @@ module.exports = (nextConfig = {}) => {
 
       return config;
     },
-  });
+  };
+  delete svgrNextConfig.fileLoader;
+  delete svgrNextConfig.svgrOptions;
+  return svgrNextConfig;
 };
