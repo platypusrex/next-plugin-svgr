@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.4](https://github.com/platypusrex/next-plugin-svgr/compare/@release/1.1.3...@release/1.1.4) (2023-04-08)
+
+
+### Bug Fixes
+
+* missing types in published npm package ([a9b9015](https://github.com/platypusrex/next-plugin-svgr/commit/a9b9015ac2f7ed5070af936e43d960286c01c7c2))
+
 ### [1.1.3](https://github.com/platypusrex/next-plugin-svgr/compare/@release/1.1.2...@release/1.1.3) (2022-11-22)
 
 ### [1.1.2](https://github.com/platypusrex/next-plugin-svgr/compare/@release/1.1.1...@release/1.1.2) (2022-07-25)
