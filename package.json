@@ -13,6 +13,7 @@
   },
   "main": "index.js",
   "files": [
+    "types/*",
     "index.js"
   ],
   "scripts": {
@@ -32,6 +33,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "husky": "^7.0.4",
     "prettier": "^2.5.1",
+    "react": "^18.2.0",
     "standard-version": "^9.3.2"
   }
 }
