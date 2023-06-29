@@ -16,6 +16,9 @@
     "types/*",
     "index.js"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "lint": "eslint \"index.js\"",
     "lint:fix": "eslint --fix",
