@@ -1,0 +1,38 @@
+name: Release
+on:
+  push:
+    branches:
+      - master
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+jobs:
+  release:
+    name: Release
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js 18
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+        env:
+          CI: true
+
+      - name: Create PR or Publish release
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          version: yarn ci:version
+          commit: 'chore: update versions'
+          title: 'chore: update versions'
+          publish: yarn release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
