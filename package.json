@@ -19,21 +19,21 @@
   "scripts": {
     "lint": "eslint \"index.js\"",
     "lint:fix": "eslint --fix",
-    "release": "standard-version"
+    "version": "changeset version",
+    "release": "yarn lint && changeset publish && git push --follow-tags"
   },
   "dependencies": {
-    "@svgr/webpack": "^6.2.0",
+    "@svgr/webpack": "^8.0.1",
     "file-loader": "^6.2.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^16.0.2",
-    "@commitlint/config-conventional": "^16.0.0",
-    "eslint": "^7.32.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "husky": "^7.0.4",
-    "prettier": "^2.5.1",
-    "react": "^18.2.0",
-    "standard-version": "^9.3.2"
+    "@changesets/cli": "^2.26.2",
+    "@commitlint/cli": "^17.6.6",
+    "@commitlint/config-conventional": "^17.6.6",
+    "eslint": "^8.43.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "husky": "^8.0.3",
+    "prettier": "^2.8.8"
   }
 }
