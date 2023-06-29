@@ -1,9 +1,12 @@
 name: Release
+
 on:
   push:
     branches:
       - master
+
 concurrency: ${{ github.workflow }}-${{ github.ref }}
+
 jobs:
   release:
     name: Release
@@ -12,24 +15,20 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
 
       - name: Setup Node.js 18
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 18
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
-        env:
-          CI: true
+        run: yarn
 
       - name: Create PR or Publish release
         id: changesets
         uses: changesets/action@v1
         with:
-          version: yarn ci:version
+          version: yarn version
           commit: 'chore: update versions'
           title: 'chore: update versions'
           publish: yarn release

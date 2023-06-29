@@ -19,7 +19,7 @@
   "scripts": {
     "lint": "eslint \"index.js\"",
     "lint:fix": "eslint --fix",
-    "ci:version": "changeset version",
+    "version": "changeset version",
     "release": "yarn lint && changeset publish && git push --follow-tags"
   },
   "dependencies": {
