@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.7
+
+### Patch Changes
+
+- 9307d78: build(deps): bump word-wrap from 1.2.3 to 1.2.4
+
 ## 1.1.6
 
 ### Patch Changes
