@@ -2,7 +2,7 @@
   "name": "next-plugin-svgr",
   "author": "Frank Cooke",
   "license": "MIT",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "Next js plugin for SVGR",
   "repository": {
     "type": "git",
