@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.8
+
+### Patch Changes
+
+- 428603f: Migrates from yarn v1 to pnpm for managing dependencies. Also updates dev dependencies.
+
 ## 1.1.7
 
 ### Patch Changes
