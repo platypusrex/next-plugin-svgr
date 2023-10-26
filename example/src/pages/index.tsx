@@ -1,7 +1,7 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import type { NextPage } from 'next';
+import Head from 'next/head';
+import Image from 'next/image';
+import styles from '../styles/Home.module.css';
 // The asset is actually being imported from the 'public' dir
 // You certainly don't need to keep svg assets here (you can place them inside 'src' or where ever you prefer)
 // If you like the clean absolute import take a look at the example tsconfig (basePath/path fields required)
@@ -28,11 +28,11 @@ const Home: NextPage = () => (
         </div>
         <div className={styles.iconContainer}>
           <p>File:</p>
-          <Image className={styles.img} src={src} alt="vercel icon" width="128px" height="103px" />
+          <Image className={styles.img} src={src} alt="vercel icon" width={128} height={103} />
         </div>
       </div>
     </main>
   </div>
 );
 
-export default Home
+export default Home;
