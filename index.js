@@ -13,7 +13,7 @@ module.exports = (nextConfig = {}) => {
       ];
 
       if (fileLoader) {
-        const path = 'static/svg/';
+        const path = 'static/media/';
         const defaultOptions = {
           limit: 8192,
           publicPath: `${assetPrefix ?? ''}/_next/${path}`,
