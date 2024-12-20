@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.12
+
+### Patch Changes
+
+- 1472d3d: build(deps-dev): bump braces from 3.0.2 to 3.0.3
+
 ## 1.1.11
 
 ### Patch Changes
