@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.1.11
+
+### Patch Changes
+
+- 0a4e537: Fixes issues with release worflow.
+- 61726c4: Updates the example application to the latest version of next.js (v15). Eslint migrated to v9 and configuration files updated. Husky and commitlint also migrated to latest versions and config files updated.
+
 ## 1.1.10
 
 ### Patch Changes
